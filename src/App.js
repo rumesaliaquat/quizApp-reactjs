@@ -5,27 +5,27 @@ import { useState } from 'react';
 function App() {
   const questions = [
     {
-      questionText: 'HTML stands for?',
+      questionText: 'which language used for building basic structure of website?',
       answerOptions: [
         { answerText: 'Hyper Text Markup Language', isCorrect: true },
-        { answerText: 'CSS', isCorrect: false },
-        { answerText: 'JS', isCorrect: false },
+        { answerText: 'Cascading Style Sheet', isCorrect: false },
+        { answerText: 'Java Script', isCorrect: false },
+        { answerText: 'python', isCorrect: false}
       ],
     },
     {
-      questionText: 'CSS stands for?',
+      questionText: 'Which language used for styling websites?',
       answerOptions: [
         { answerText: 'Cascading Style Sheet', isCorrect: true },
-        { answerText: 'html', isCorrect: false },
-        { answerText: 'js', isCorrect: false },
+        { answerText: 'Hyper Text Markup Language', isCorrect: false }
       ],
     },
     {
-      questionText: 'Js stands for?',
+      questionText: 'Dynamic website build by __________?',
       answerOptions: [
         { answerText: 'Java Script', isCorrect: true },
-        { answerText: 'CSS', isCorrect: false },
-        { answerText: 'HTml', isCorrect: false },
+        { answerText: 'Cascading Style Sheet', isCorrect: false },
+        { answerText: 'Hyper Text Markup Language', isCorrect: false }
       ],
     },
   ];
@@ -49,22 +49,22 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className='app'>
-          <h3>Quiz App</h3>
+          <h1>Quiz App</h1>
           {showScore ? (
-            <div>
+            <div className='scoreLine'>
               You scored {score} out of {questions.length * 10}
             </div>) : (
             <>
               <div >
                 <div>
-                  <span>Question {currentQuestion+1}</span>/{questions.length}
+                  <div className='quesNoRender'>Question No. {currentQuestion+1}/{questions.length}</div>
                 </div>
 
 
-                <div>{questions[currentQuestion].questionText}</div>
+                <div className='ques'>{questions[currentQuestion].questionText}</div>
                 {/* {console.log(currentQuestion)} */}
               </div>
-              <div>
+              <div className='ansDiv'>
 
                 {questions[currentQuestion].answerOptions.map((answerOption,index) => (
                   <button key={index} onClick={() => answerOptioncheck(answerOption.isCorrect)}>{answerOption.answerText}</button>
